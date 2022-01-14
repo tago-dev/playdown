@@ -6,7 +6,7 @@ from pytube import Playlist
 import os
 
 link = input("Insira o link de uma playlist: ")
-yt = Playlist(link)  # pega 0 link da playlist enviada pelo usúario
+yt = Playlist(link)
 acre = 0;
 for url in yt.video_urls:
     ys = YouTube(url)
@@ -18,5 +18,5 @@ for url in yt.video_urls:
     os.rename(out_file, new_file)
     print("Concluído")
 
-print("Downloads concluidos!")
+print("Playlist pronta!")
 print("By ObvTago :D")
