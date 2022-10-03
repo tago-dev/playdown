@@ -1,0 +1,11 @@
+
+build/playdown/Analysis-00.toc
+build/playdown/base_library.zip
+*.manifest
+build/playdown/EXE-00.toc
+*.toc
+*.pkg
+*.pyz
+*.txt
+*.html
+*.exe
