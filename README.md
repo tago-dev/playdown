@@ -6,7 +6,7 @@
 
 
 ### About
-A software designed to download YouTube playlists quickly and easily. Literally copy, paste and download, easier and faster than that is impossible, right?
+Um software projetado para baixar listas de reprodução do YouTube de forma rápida e fácil. Literalmente copie, cole e baixe, mais fácil e rápido que isso é impossível, certo?
 
 
 ## Instalação
