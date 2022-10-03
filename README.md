@@ -1,7 +1,7 @@
 # playdown
 
 <p align="center">
-  <img src="https://cdn.upload.systems/uploads/HSvL4p5o.png">
+  <a href="https://github.com/tago-dev/playdown/releases/tag/final"><img src="https://cdn.upload.systems/uploads/HSvL4p5o.png"></a>
 </p>
 
 
