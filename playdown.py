@@ -1,6 +1,6 @@
 from pytube import YouTube, Playlist
-from os import system as cmd
 import os
+from os import system as cmd
 import random
 import tkinter as tk
 from tkinter import filedialog
@@ -9,7 +9,7 @@ import time
 option_menu = {
     1: "Baixar playlist (music)",
     2: "Baixar musica",
-    3: "Sair",
+    3: "Sair"
 }
 
 def print_options():
@@ -38,14 +38,16 @@ def main():
     print_options()
     option = get_option()
     if option == 1:
-        os.system("cls" if os.name == "nt" else "clear")
+        limpar()
         download_playlist()
     elif option == 2:
-        os.system("cls" if os.name == "nt" else "clear")
+        limpar()
         download_music()
     elif option == 3:
         print("Saindo...")
-        exit()
+        os.system("exit" if os.name == "nt" else "exit")
+    else:
+        print("Numero invalido!")
 
 def format_title(title):
     new_title = ''
@@ -77,9 +79,10 @@ def download_playlist():
     print("Baixado com sucesso! \n")
 
     if input("Deseja baixar outra playlist? (s/n) ") == "s":
-        os.system("cls" if os.name == "nt" else "clear")
+        limpar()
         download_playlist()
     else:
+        limpar()
         main()
 
 
@@ -98,12 +101,20 @@ def download_music():
     file_path = filedialog.askdirectory()
     music.streams.get_audio_only().download(f"{file_path}", filename=f"{name}" + ".mp3")
     print("Baixado com sucesso! \n")
-
+    
     if input("Deseja baixar outra musica? (s/n) ") == "s":
-        os.system("cls" if os.name == "nt" else "clear")
+        limpar()
         download_music()
     else:
+        limpar()
         main()
+
+def limpar():
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
+
 
 if __name__ == '__main__':
     main()
