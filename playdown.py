@@ -2,11 +2,11 @@ import os
 from tkinter import Tk as tk
 from tkinter import filedialog
 
-option_menu = {
-    1: 'Baixar playlist',
-    2: 'Baixar música',
-    3: 'Sair'
-}
+from pytube import Playlist
+from pytube import YouTube
+
+option_menu = {1: "Baixar playlist", 2: "Baixar música", 3: "Sair"}
+
 
 def print_options():
     print()
