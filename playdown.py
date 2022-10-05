@@ -2,7 +2,6 @@ from pytube import YouTube, Playlist
 from tkinter import filedialog, Tk as tk
 import os
 
-
 option_menu = {
     1: 'Baixar playlist',
     2: 'Baixar música',
@@ -11,8 +10,8 @@ option_menu = {
 
 def print_options():
     print()
-    print("          ###                          ###                              ")
-    print("           ##                           ##                              ")
+    print("           ###                          ###                             ")
+    print("            ##                           ##                             ")
     print(" ######     ##      ####    ##  ##       ##    ####    ##   ##  #####   ")
     print("  ##  ##    ##         ##   ##  ##    #####   ##  ##   ## # ##  ##  ##  ")
     print("  ##  ##    ##      #####   ##  ##   ##  ##   ##  ##   #######  ##  ##  ")
@@ -66,6 +65,7 @@ def download_playlist():
     root = tk()
     root.withdraw()
     file_path = filedialog.askdirectory()
+    print()
     for url in playlist:
         music = YouTube(url)
         name = format_title(music.title)
@@ -74,6 +74,7 @@ def download_playlist():
         # Baixar música e criar pasta com o nome do artista
         music.streams.get_audio_only().download(f'{file_path}/{author}', filename=f'{name}' + '.mp3', skip_existing=True)
         acre += 1
+
         print(f'Baixado com sucesso! {name} - {author} \n')
 
     if input('Deseja baixar outra playlist? (s/n) ') == 's':
@@ -84,7 +85,7 @@ def download_playlist():
         main()
 
 
-def new_func(audio):
+def salvar(audio):
     audio.save()
 
 
@@ -101,9 +102,13 @@ def download_music():
     root.withdraw()
     file_path = filedialog.askdirectory()
     author = format_title(music.author)
+    print()
 
     # Baixar música e criar pasta com o nome do artista
+    print(f'Baixando {name} - {author}...')
     music.streams.get_audio_only().download(f'{file_path}/{author}', filename=f'{name}' + '.mp3', skip_existing=True)
+    print(f'Baixado com sucesso! {name} - {author} \n')
+
     if input('Deseja baixar outra musica? (s/n) ') == 's':
         limpar()
         download_music()
