@@ -1,7 +1,7 @@
 # playdown
 
 <p align="center">
-  <a href="https://github.com/tago-dev/playdown/releases/tag/final"><img src="https://cdn.upload.systems/uploads/HSvL4p5o.png"></a>
+  <a href="https://github.com/tago-dev/playdown/releases/tag/final"><img src="https://cdn.upload.systems/uploads/bcp9Fn1s.png"></a>
 </p>
 
 
