@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/tago-dev/playdown/releases/tag/final"><img src="https://cdn.upload.systems/uploads/bcp9Fn1s.png" width="200" height="300"></a>
+  <a href="https://github.com/tago-dev/playdown/releases/tag/final"><img src="https://cdn.upload.systems/uploads/bcp9Fn1s.png"></a>
 </p>
 
 
