@@ -1,15 +1,16 @@
-from email.mime import audio
 import os
+import sys
+from email.mime import audio
 from tkinter import Tk as tk
 from tkinter import filedialog
 from termcolor import colored, cprint
-from time import sleep
+from time import sleep, time
 from tqdm import tqdm
 
 from pytube import Playlist
 from pytube import YouTube
 
-option_menu = {1: "Baixar playlist", 2: "Baixar música", 3: "Sair"}
+option_menu = {1: "Baixar playlist", 2: "Baixar música", 3: "Sair", 4: "Configurações"}
 
 # Titulo do programa
 titulo = "PlayDown"
@@ -67,7 +68,7 @@ def format_title(title):
     for ch in title:
         if (
             ch
-            not in 'áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ!@#$%¨&*()_+{}[]:;?/.,><`¬^~´°ºª|'
+            not in 'aáàâãäåbcçdeéèêëfghiíìîïjklmnoóòôõöpqrstuúùûüvwxyzAÁÀÂÃÄÅBCÇDEÉÈÊËFGHIÍÌÎÏJKLMNOÓÒÔÕÖPQRSTUÚÙÛÜVWXYZ0123456789-_()[]{}# '
         ):
             new_title += ch
     return new_title
@@ -75,14 +76,14 @@ def format_title(title):
 
 def download_playlist():
     print()
-    cprint(' Insira o URL da playlist que deseja baixar', 'white', attrs=['bold'])
-    cprint(' Exemplo: https://www.youtube.com/playlist?list=XXXXXXXXXXX', 'white', attrs=['bold'])
+    cprint('   Insira o URL da playlist que deseja baixar', 'white', attrs=['bold'])
+    cprint('   Exemplo: https://www.youtube.com/playlist?list=XXXXXXXXXXX', 'white', attrs=['bold'])
     print()
     symbol_more_than = colored('>', 'magenta', attrs=['bold'])
     link = input(f'  | {symbol_more_than} Link: ')
     playlist = Playlist(link)
     acre = 0
-    cprint(' Escolha o local para salvar a playlist', 'white', attrs=['bold'])
+    cprint('   Escolha o local para salvar a playlist', 'white', attrs=['bold'])
     root = tk()
     root.withdraw()
     file_path = filedialog.askdirectory()
@@ -153,6 +154,12 @@ def limpar():
     else:
         os.system('clear')
 
+def exit():
+    limpar()
+    cprint(' Obrigado por utilizar o PlayDown!', 'white', attrs=['bold'])
+    cprint(' Desenvolvido por: tago', 'white', attrs=['bold'])
+    time.sleep(2)
+    sys.exit()
 
 if __name__ == '__main__':
     main()
