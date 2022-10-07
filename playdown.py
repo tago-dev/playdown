@@ -7,6 +7,9 @@ from pytube import YouTube
 
 option_menu = {1: "Baixar playlist", 2: "Baixar música", 3: "Sair"}
 
+# Titulo do programa
+titulo = "PlayDown"
+os.system("title " + titulo if os.name == "nt" else "PS1='\[\e]0;" + titulo + "\a\]'; echo $PS1")
 
 def print_options():
     print()
@@ -54,7 +57,7 @@ def format_title(title):
     for ch in title:
         if (
             ch
-            in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_()[]{} "
+            not in "áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ!@#$%¨&*()_+{}[]:;?/.,><`¬^~´°ºª|"
         ):
             new_title += ch
     return new_title
