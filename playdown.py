@@ -1,37 +1,34 @@
-import os
-import sys
-from email.mime import audio
-from tkinter import Tk as tk
-from tkinter import filedialog
+from pytube import YouTube, Playlist
+from os import system as cmd, name as os_name
+from sys import exit
+from tkinter import Tk as tk, filedialog
 from termcolor import colored, cprint
 from time import sleep, time
 from tqdm import tqdm
 
-from pytube import Playlist
-from pytube import YouTube
 
-option_menu = {1: "Baixar playlist", 2: "Baixar música", 3: "Sair", 4: "Configurações"}
+option_menu = {1: 'Baixar playlist', 2: 'Baixar música', 3: 'Sair', 4: 'Configurações'}
 
 # Titulo do programa
-titulo = "PlayDown"
-os.system("title " + titulo if os.name == "nt" else "PS1='\[\e]0;" + titulo + "\a\]'; echo $PS1")
+titulo = 'PlayDown'
+cmd('title ' + titulo if os_name == 'nt' else "PS1='\[\e]0;" + titulo + "\a\]'; echo $PS1")
 
-# tamanho do cmd para windows e linux
-if os.name == 'nt':
-    os.system('mode con: cols=100 lines=25')
+# Tamanho do cmd para windows e linux
+if os_name == 'nt':
+    cmd('mode con: cols=100 lines=25')
 else:
-    os.system('resize -s 30 100')
+    cmd('resize -s 30 100')
 
 def print_options():
     print()
-    cprint('                           _____  _             _____                      ', 'magenta', attrs=['bold'])   
-    cprint('                          |  __ \| |           |  __ \                     ', 'magenta', attrs=['bold'])
-    cprint('                          | |__) | | __ _ _   _| |  | | _____      ___ __  ', 'magenta', attrs=['bold'])
-    cprint('                          |  ___/| |/ _` | | | | |  | |/ _ \ \ /\ / /  _ \ ', 'magenta', attrs=['bold'])
-    cprint('                          | |    | | (_| | |_| | |__| | (_) \ V  V /| | | |', 'magenta', attrs=['bold'])
-    cprint('                          |_|    |_|\__,_|\__, |_____/ \___/ \_/\_/ |_| |_|', 'magenta', attrs=['bold'])
-    cprint('                                           __/ |                           ', 'magenta', attrs=['bold'])
-    cprint('                                          |___/                            ', 'magenta', attrs=['bold'])
+    cprint("                           _____  _             _____                      ", 'magenta', attrs=['bold'])
+    cprint("                          |  __ \| |           |  __ \                     ", 'magenta', attrs=['bold'])
+    cprint("                          | |__) | | __ _ _   _| |  | | _____      ___ __  ", 'magenta', attrs=['bold'])
+    cprint("                          |  ___/| |/ _` | | | | |  | |/ _ \ \ /\ / /  _ \ ", 'magenta', attrs=['bold'])
+    cprint("                          | |    | | (_| | |_| | |__| | (_) \ V  V /| | | |", 'magenta', attrs=['bold'])
+    cprint("                          |_|    |_|\__,_|\__, |_____/ \___/ \_/\_/ |_| |_|", 'magenta', attrs=['bold'])
+    cprint("                                           __/ |                           ", 'magenta', attrs=['bold'])
+    cprint("                                          |___/                            ", 'magenta', attrs=['bold'])
     print()
     cprint(' ------------------------------ Bem-Vindo, escolha uma opção abaixo. ------------------------------ ', 'white', attrs=['bold'])
     print()
@@ -83,6 +80,7 @@ def download_playlist():
     link = input(f'  | {symbol_more_than} Link: ')
     playlist = Playlist(link)
     acre = 0
+
     cprint('   Escolha o local para salvar a playlist', 'white', attrs=['bold'])
     root = tk()
     root.withdraw()
@@ -93,13 +91,12 @@ def download_playlist():
         name = format_title(music.title)
         playlist_name = format_title(playlist.title)
 
-        # progress bar tqdm
+        # Barra de progresso TQDM
         for i in tqdm(range(100), desc=f' Baixando {name}'):
             sleep(0.01)
+
         # Baixar música e criar pasta com o nome do artista
-        music.streams.get_audio_only().download(
-            f'{file_path}/{playlist_name}', filename=f'{name}' + '.mp3', skip_existing=True
-        )
+        music.streams.get_audio_only().download(f'{file_path}/{playlist_name}', filename=f'{name}' + '.mp3', skip_existing=True)
         acre += 1
         cprint(f' {acre} de {len(playlist)}', 'white', attrs=['bold'])
     cprint(' Playlist baixada com sucesso!', 'green', attrs=['bold'])
@@ -124,23 +121,25 @@ def download_music():
     link = input(f' | {symbol_more_than} Link: ')
     music = YouTube(link)
     name = format_title(music.title)
+
     print('Escolha o local para salvar a musica')
+    print()
     root = tk()
     root.withdraw()
     file_path = filedialog.askdirectory()
     music_name = format_title(music.title)
-    print()
 
-    # progress bar tqdm
+    # Progress bar tqdm
     for i in tqdm(range(100), desc=f' Baixando {music_name}'):
         sleep(0.01)
+
     # Baixar música e criar pasta com o nome do artista
     music.streams.get_audio_only().download(
         f'{file_path}' + '/Musics PlayDown', filename=f'{music_name}' + '.mp3', skip_existing=True
     )
     cprint(f' {name} baixada com sucesso!', 'white', attrs=['bold'])
 
-    if input(" Deseja baixar outra musica? (s/n) ") == "s":
+    if input(' Deseja baixar outra musica? (s/n) ') == "s":
         limpar()
         download_music()
     else:
@@ -149,17 +148,17 @@ def download_music():
 
 
 def limpar():
-    if os.name == 'nt':
-        os.system('cls')
+    if os_name == 'nt':
+        cmd('cls')
     else:
-        os.system('clear')
+        cmd('clear')
 
 def exit():
     limpar()
     cprint(' Obrigado por utilizar o PlayDown!', 'white', attrs=['bold'])
     cprint(' Desenvolvido por: tago', 'white', attrs=['bold'])
     time.sleep(2)
-    sys.exit()
+    exit()
 
 if __name__ == '__main__':
     main()
