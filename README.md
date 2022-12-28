@@ -1,16 +1,22 @@
-<p align="center">
-  <a href="#"><img src="https://cdn.upload.systems/uploads/bcp9Fn1s.png"></a>
-</p>
+# Playdown
 
+Bem-vindo ao Playdown, um aplicativo de downloads de playlist de música do YouTube de forma fácil e rápida. Com o Playdown, você pode facilmente baixar todas as músicas de uma playlist do YouTube em seu dispositivo para ouvir offline.
 
-### About
-Um software projetado para baixar listas de reprodução do YouTube de forma rápida e fácil. Literalmente copie, cole e baixe, mais fácil e rápido que isso é impossível, certo?
+## Como funciona?
 
-<p align="center">
-  <img src="https://cdn.upload.systems/uploads/jmRIj9fb.gif" width="500" heigth="500">
-</p>
+Para usar o Playdown, basta fornecer o link da playlist do YouTube que deseja baixar. O aplicativo irá analisar a playlist e exibir uma lista de todas as músicas disponíveis para download. Você pode selecionar quais músicas deseja baixar e o Playdown fará o resto. As músicas serão baixadas em segundo plano, permitindo que você continue usando o aplicativo enquanto o download é realizado.
 
+## Recursos
 
-## Instalação
+- Suporte a download de playlists inteiras do YouTube
+- Downloads em segundo plano
+- Seleção de músicas individuais para download
+- Interface fácil de usar
 
-Instale a aplicação <a href="https://github.com/tago-dev/playdown/releases/download/atualizacao_prc/playdown.exe">clicando aqui</a>
+## Requisitos
+
+Para usar o Playdown, você precisará de um dispositivo com Windows 10 ou superior.
+
+## Baixe agora
+
+Para começar a usar o Playdown, basta fazer o download da última versão do aplicativo <a href="https://github.com/tago-dev/playdown/releases/tag/v1.5">clicando aqui</a>. Comece a baixar playlists do YouTube de forma fácil e rápida com o Playdown!
