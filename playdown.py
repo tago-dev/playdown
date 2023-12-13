@@ -99,7 +99,7 @@ def download_playlist():
         # Barra de progresso TQDM
         for i in tqdm(range(100), desc=f' Baixando {name}'):
             sleep(0.01)
-        
+
         # Baixar música e salvar na pasta
         music.streams.filter(only_audio=True).first().download(file_path + '/' + playlist_name, filename=name + '.mp3')
         acre += 1
@@ -132,7 +132,7 @@ def download_music():
     # Barra de progresso TQDM
     for i in tqdm(range(100), desc=f' Baixando {name} '):
         sleep(0.01)
-    
+
     # Baixar música com o nome do artista e da música
     music.streams.get_audio_only().download(f'{file_path}', filename=f'{name}' + '.mp3')
     cprint(f' | {name} baixada com sucesso!', 'white', attrs=['bold'])
