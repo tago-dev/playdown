@@ -6,9 +6,10 @@ from subprocess import run
 from tkinter import Tk, filedialog
 from pathlib import Path
 from time import sleep
+from shutil import which
+from pkg_resources import working_set
 from sys import exit
-import shutil
-import pkg_resources
+
 
 def progress_hook(d):
     if d['status'] == 'finished':
@@ -71,7 +72,7 @@ def check_requirements():
     # Check the requirements file requirements.txt
     with open('requirements.txt') as f:
         required = f.read().splitlines()
-    installed = [pkg.key for pkg in pkg_resources.working_set]
+    installed = [pkg.key for pkg in working_set]
     missing = [req for req in required if req not in installed]
     if missing:
         print('Installing the required packages ...')
@@ -84,7 +85,7 @@ def check_requirements():
         sleep(2)
 
     # Check if ffmpeg is installed
-    if shutil.which('ffmpeg') is None:
+    if which('ffmpeg') is None:
         print('ffmpeg is not installed. Please install ffmpeg and add it to your PATH.')
         exit(1)
     else:
@@ -104,6 +105,7 @@ def main():
             input('Press Enter to continue ...')
         elif choice == '2':
             exit()
+
 
 if __name__ == '__main__':
     main()
