@@ -1,3 +1,7 @@
-pytube
+ffmpeg-python
+yt_dlp
 termcolor
-tqdm
+subprocess
+tkinter
+pathlib
+time
