@@ -1,7 +1,4 @@
-ffmpeg-python
-yt_dlp
+setuptools
+yt-dlp
 termcolor
-subprocess
-tkinter
-pathlib
-time
+tqdm
