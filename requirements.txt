@@ -1,4 +1,6 @@
 setuptools
 yt-dlp
-termcolor
+customtkinter
+pillow
 tqdm
+ffmpeg-python
